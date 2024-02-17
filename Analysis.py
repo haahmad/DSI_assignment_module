@@ -35,9 +35,34 @@ class Analysis():
         return self.dataset[["forks_count", "open_issues_count", "watchers_count"]].mean()
 
     def plot_data(self, save_path: Optional[str] = None) -> plt.Figure:
-        pass
+        fig, ax = plt.subplots(figsize=(self.config["figure_size_x"], self.config["figure_size_y"]))
+        # fig, ax = plt.subplots()
+
+        forks = ax.scatter(self.dataset['watchers_count'], self.dataset['forks_count'], color=self.config["plot_color"])
+        issues = ax.scatter(self.dataset['watchers_count'], self.dataset['open_issues_count'])
+        ax.set_title(self.config["plot_title"])
+        ax.set_ylabel(self.config["plot_y_title"])
+        ax.set_xlabel(self.config["plot_x_title"])
+        ax.legend([forks, issues], ['Forks', 'Open Issues'])
+        ax.grid(0.7)
+
+
+        default_save_location = f'./{self.config["save_path"]}/engagement_scatter.png'
+        #print(default_save_location)
+
+        if (save_path == None):
+            save_location = default_save_location
+        else:
+            save_location = save_path
+
+        #print(save_location)
+
+        plt.savefig(save_location)
+        return fig
+        
 
     def notify_done(self, message: str) -> None:
+
         pass
 
 
@@ -50,4 +75,6 @@ print(x.dataset["forks_count"])
 print(x.dataset["open_issues_count"])
 print(x.dataset["watchers_count"])
 print(x.compute_analysis())
+x.plot_data()
+x.plot_data(save_path="local_file.png")
 
