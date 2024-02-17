@@ -35,3 +35,7 @@ class Analysis():
 
     def notify_done(self, message: str) -> None:
         pass
+
+
+x = Analysis('configs/job_file.yml')
+print(x.config)
