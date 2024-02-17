@@ -32,7 +32,7 @@ class Analysis():
         self.dataset = dataframe
 
     def compute_analysis(self) -> Any:
-        return self.dataset.mean()
+        return self.dataset[["forks_count", "open_issues_count", "watchers_count"]].mean()
 
     def plot_data(self, save_path: Optional[str] = None) -> plt.Figure:
         pass
@@ -49,4 +49,5 @@ print(x.dataset.columns)
 print(x.dataset["forks_count"])
 print(x.dataset["open_issues_count"])
 print(x.dataset["watchers_count"])
+print(x.compute_analysis())
 
