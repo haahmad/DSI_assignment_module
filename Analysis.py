@@ -2,6 +2,8 @@ from typing import Any, Optional
 import matplotlib.pyplot as plt
 import yaml
 import requests
+import pandas as pd
+from io import StringIO
 
 
 class Analysis():
@@ -24,11 +26,13 @@ class Analysis():
         self.config = config
 
     def load_data(self) -> None:
-        data = requests.get('/url/to/data').json()
-        self.dataset = data
+        requestUrl = f'{self.config["api_base_path"]}/{self.config["endpoint"]}/{self.config["owner"]}/{self.config["resource"]}'
+        data = requests.get(url=requestUrl).text
+        dataframe = pd.read_json(StringIO(data))
+        self.dataset = dataframe
 
     def compute_analysis(self) -> Any:
-        return self.dataset.mean() 
+        return self.dataset.mean()
 
     def plot_data(self, save_path: Optional[str] = None) -> plt.Figure:
         pass
@@ -39,3 +43,10 @@ class Analysis():
 
 x = Analysis('configs/job_file.yml')
 print(x.config)
+x.load_data()
+print(x.dataset.shape)
+print(x.dataset.columns)
+print(x.dataset["forks_count"])
+print(x.dataset["open_issues_count"])
+print(x.dataset["watchers_count"])
+
