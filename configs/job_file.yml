@@ -1,0 +1,6 @@
+api_base_path: https://api.github.com/
+resource: repos
+owner: pytest_dev
+repo: pytest
+entity: pulls
+plot_title: Pull Requests
