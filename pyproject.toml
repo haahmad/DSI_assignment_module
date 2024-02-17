@@ -1,0 +1,17 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "Analysis"
+authors = [
+    {name = "Hasan Ahmad", email = "hasan.ibrahim.ahmad@gmail.com"},
+]
+description = "DSI BRS Assignment package"
+version = "0.1.0"
+dependencies = ["matplotlib", "numpy", "pyyaml", "requests"]
+requires-python = ">=3.10.0"
+readme = "README.md"
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+]
