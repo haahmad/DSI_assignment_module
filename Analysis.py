@@ -62,8 +62,13 @@ class Analysis():
         
 
     def notify_done(self, message: str) -> None:
+        topic = self.config["ntfy_topic"]
+        # print(topic)
+        title = 'Ahmad_Hasan_DSI_BRS_Assignment Ntfy'
+        # send a message through ntfy.sh
+        response = requests.post('https://ntfy.sh/' + topic, data=message.encode('utf-8'), headers={'Title': title})
+        # print(response)
 
-        pass
 
 
 x = Analysis('configs/job_file.yml')
@@ -77,4 +82,5 @@ print(x.dataset["watchers_count"])
 print(x.compute_analysis())
 x.plot_data()
 x.plot_data(save_path="local_file.png")
+x.notify_done(message='Hello ntfy')
 
