@@ -1,2 +1,2 @@
-save_path: output_figures
+save_path: output_figures/engagement_scatter_plots.png
 ntfy_topic: dsi_BRS_Assignment_Hasan_Ahmad
