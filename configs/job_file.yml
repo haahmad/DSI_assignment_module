@@ -2,4 +2,6 @@ api_base_path: https://api.github.com
 endpoint: orgs
 owner: pytest-dev
 resource: repos
-plot_title: Repos
+plot_title: Engagement vs Watchers
+plot_y_title: Engagement
+plot_x_title: Watchers

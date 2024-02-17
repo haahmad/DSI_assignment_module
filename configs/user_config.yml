@@ -1,3 +1,4 @@
 plot_color: 'red'
-figure_size: '1024'
+figure_size_x: 8
+figure_size_y: 8
 github_token: 'TOKEN'
