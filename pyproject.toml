@@ -9,7 +9,7 @@ authors = [
 ]
 description = "DSI BRS Assignment package"
 version = "0.1.0"
-dependencies = ["matplotlib", "numpy", "pyyaml", "requests", "logging", "pytest"]
+dependencies = ["matplotlib", "numpy", "pyyaml", "requests", "pytest"]
 requires-python = ">=3.10.0"
 readme = "README.md"
 classifiers = [
